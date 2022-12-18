@@ -133,4 +133,4 @@ Check the quality of code with `yarn lint`
 
 ## License <a name="license"></a>
 
-No License Yet. Copyright 2021 ITMO-Corp
+The project is available as open source under the terms of the MIT License. Copyright 2022 Max Barsukov
