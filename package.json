@@ -9,7 +9,6 @@
   "bugs": {
     "url": "https://github.com/itmo-corp/itmoptics-web/issues"
   },
-  "homepage": ".",
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
