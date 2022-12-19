@@ -42,3 +42,6 @@ yarn-debug.log*
 yarn-error.log*
 
 .wakatime-project
+
+# site content for API
+pages/*

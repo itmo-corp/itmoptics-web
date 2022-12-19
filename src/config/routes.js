@@ -4,7 +4,7 @@ import getContrastPaperColor from 'utils/getContrastPaperColor';
 
 import Home from 'pages/Home';
 import NotFound from 'pages/NotFound';
-
+import Exhibit from 'pages/Exhibit/index';
 import Settings from 'pages/Settings';
 import SettingsAppearance from 'pages/Settings/Appearance';
 import SettingsImport from 'pages/Settings/ImportSettings';
@@ -22,6 +22,14 @@ const routes = [
     shouldAppBarChangeColors: true,
     appBarColor: theme => theme.palette.background.paper,
     alias: 'exhibits',
+  },
+  {
+    path: '/exhibits/:id',
+    component: <Exhibit />,
+    shouldShowAppBar: false,
+    shouldAppBarChangeColors: false,
+    appBarColor: theme => theme.palette.background.default,
+    alias: 'exhibit',
   },
   {
     path: '/settings/reader',
@@ -81,9 +89,9 @@ const routes = [
     path: '/about',
     component: <AboutPage />,
     title: 'О проекте',
-    shouldShowAppBar: false,
+    shouldShowAppBar: true,
     shouldAppBarChangeColors: true,
-    appBarColor: theme => theme.palette.background.default,
+    appBarColor: theme => theme.palette.background.paper,
     alias: 'about',
   },
   {

@@ -158,7 +158,7 @@ const SideNavigationDrawer = () => {
       <div className={classes.drawerContainer}>
         <div className={classes.logoHolder}>
           <Typography onClick={() => goHome()} variant="h6" className={classes.logo}>
-            <img src="./images/logo.ico" alt="logo" height="40" width="40" />
+            <img src="/images/logo.ico" alt="logo" height="40" width="40" />
             IT[M]Optics
           </Typography>
         </div>

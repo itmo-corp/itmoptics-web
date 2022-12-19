@@ -5,7 +5,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import { List } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-import PostSkeleton from 'components/skeletons/PostItem';
+import ExhibitSkeleton from 'components/skeletons/ExhibitItem';
 
 import ExhibitItem from 'components/blocks/ExhibitItem';
 import ErrorComponent from 'components/blocks/Error';
@@ -103,7 +103,7 @@ const Home = () => {
         <MainBlock>
           <List className={classes.list}>
             {/* eslint-disable-next-line react/no-array-index-key */}
-            {isFetching && [...new Array(7)].map((_, i) => <PostSkeleton key={i} />)}
+            {isFetching && [...new Array(7)].map((_, i) => <ExhibitSkeleton key={i} />)}
             {isFetched && !fetchError && exhibits && <>{exhibitsComponents}</>}
             {fetchError && <ErrorComponent code={500} message={fetchError} />}
           </List>

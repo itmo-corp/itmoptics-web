@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import { useTheme } from '@material-ui/core';
 import Skeleton from '@material-ui/lab/Skeleton';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import Grid from '@material-ui/core/Grid';
@@ -30,9 +29,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const PostSkeleton = () => {
+const ExhibitSkeleton = () => {
   const classes = useStyles();
-  const theme = useTheme();
 
   return (
     <Paper elevation={0} className={classes.root}>
@@ -88,4 +86,4 @@ const PostSkeleton = () => {
   );
 };
 
-export default React.memo(PostSkeleton);
+export default React.memo(ExhibitSkeleton);

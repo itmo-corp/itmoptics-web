@@ -162,7 +162,7 @@ const ImageUnmemoized = React.forwardRef(
 );
 
 ImageUnmemoized.propTypes = {
-  src: PropTypes.string.isRequired,
+  src: PropTypes.string,
   loading: PropTypes.bool.isRequired,
   style: PropTypes.object.isRequired,
   alt: PropTypes.string.isRequired,

@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import { Setting, User } from 'react-iconly';
+import { Setting } from 'react-iconly';
 import WifiOffRoundedIcon from '@material-ui/icons/WifiOffRounded';
 
 import { useHistory, useLocation } from 'react-router-dom';
@@ -13,8 +13,7 @@ import { APP_BAR_HEIGHT, MAX_WIDTH, MIDDLE_WIDTH } from 'config/constants';
 
 import { Offline } from 'react-detect-offline';
 import useRoute from 'hooks/useRoute';
-import { useSelector } from 'react-redux';
-import { CircularProgress, alpha, useMediaQuery, useTheme } from '@material-ui/core';
+import { alpha } from '@material-ui/core';
 import useAppBarScrollTrigger from 'hooks/useAppBarScrollTrigger';
 import getSecondaryAppBarColor from 'utils/getSecondaryAppBarColor';
 
@@ -90,7 +89,6 @@ const AppBarComponent = () => {
   const shouldChangeColors = route.shouldAppBarChangeColors;
   const appBarColor = route.appBarColor;
   const isHidden = !route.shouldShowAppBar;
-  const theme = useTheme();
 
   const classes = useStyles({
     isTransformed: trigger,

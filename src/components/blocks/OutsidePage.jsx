@@ -245,7 +245,7 @@ const NavBarUnmemoized = ({
         const docElement = document.documentElement;
         const docBody = document.body;
         const element = el || docElement || docBody;
-        return (docElement.scrollTop || docBody.scrollTop) / (element.offsetHeight - 200);
+        return ((docElement.scrollTop || docBody.scrollTop) * 2) / element.offsetHeight;
       };
       const newScrollProgress = getElementScroll(scrollElement);
       setScrollProgress(newScrollProgress);

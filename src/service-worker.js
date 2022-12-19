@@ -92,7 +92,7 @@ const cacheHeaderPlugin = [
 ];
 
 registerRoute(
-  /^https?:\/\/api\.followy\.ru:5600\/api\/v1\/.*/,
+  /^https?:\/\/api\.followy\.ru\/itmoptics\/api\/v1\/.*/,
   new NetworkFirst({
     networkTimeoutSeconds: 10,
     cacheName: 'api-cache-itmoptics',

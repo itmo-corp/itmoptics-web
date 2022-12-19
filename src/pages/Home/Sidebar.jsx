@@ -14,7 +14,7 @@ import purple from '@material-ui/core/colors/purple';
 import { Button } from '@material-ui/core';
 import { Skeleton } from '@material-ui/lab';
 
-import getPostLink from 'utils/getPostLink';
+import getPostLink from 'utils/getExhibitLink';
 import parse from 'html-react-parser';
 import formatNumber from 'utils/formatNumber';
 
@@ -130,12 +130,11 @@ const useGroupItemStyles = makeStyles(theme => ({
 
 const GroupItem = ({ data }) => {
   const classes = useGroupItemStyles();
-  const groupLink = `/group/${data.alias}`;
 
   return (
-    <LinkToOutsidePage className={classes.root} to={groupLink}>
-      <img className={classes.photo} alt={data.alias} src={data.photo} />
-      <span className={classes.title}>{parse(data.alias)}</span>
+    <LinkToOutsidePage className={classes.root} to={data.link}>
+      <img className={classes.photo} alt={data.text} src={data.photo} />
+      <span className={classes.title}>{parse(data.text)}</span>
     </LinkToOutsidePage>
   );
 };
@@ -176,20 +175,21 @@ const HomeSidebar = () => {
   const topGroups = [
     {
       id: 1,
-      alias: 'IT[M]Optics its about blblblblblblbl afjdfn kjsbfngkn jfn gjdfn jjn g',
-      photo: 'https://sun9-12.userapi.com/impg/BbUJGqTFS5HPmnzWHTl4YQ7x0GDwsT_4EFSbww/--OZqAqu88E.jpg?size=1080x1080&quality=96&sign=1c4eb2c1fdad9e277c22f5a5e0bbcaf6&type=album',
+      text: 'Что такое IT[M]Optics?',
+      link: '/about',
+      photo: 'https://live.staticflickr.com/65535/52573166130_40d63ee4b8_m.jpg',
     },
     {
       id: 2,
-      alias: 'Me',
-      photo: 'https://pbs.twimg.com/profile_images/822462674839699456/yEbz4yAt_400x400.jpg',
-
+      text: 'Музей Оптики ИТМО',
+      link: '/about',
+      photo: 'https://live.staticflickr.com/65535/52572720436_88c816ffd2_n.jpg',
     },
   ];
 
   const mostReading = [
     {
-      id: 1,
+      id: 3,
       title: 'TopPost1',
       reads: 12,
     },

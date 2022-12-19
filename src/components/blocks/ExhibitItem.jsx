@@ -1,11 +1,13 @@
+/* eslint-disable */
 import * as React from 'react';
+import { useEffect } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import { alpha } from '@material-ui/core';
 import ThumbsUpDownIcon from '@material-ui/icons/ThumbsUpDown';
-import { makeStyles, darken, lighten } from '@material-ui/core/styles';
+import { darken, lighten, makeStyles } from '@material-ui/core/styles';
 import formatNumber from 'utils/formatNumber';
 import GreenRedNumber from 'components/formatters/GreenRedNumber';
 import dayjs from 'dayjs';
@@ -16,11 +18,9 @@ import {
   POST_IMAGE_HEIGHT,
   POST_ITEM_VISIBILITY_THRESHOLD,
 } from 'config/constants';
-import getPostLink from 'utils/getPostLink';
+import getPostLink from 'utils/getExhibitLink';
 import VisibilitySensor from 'react-visibility-sensor';
 import isDarkTheme from 'utils/isDarkTheme';
-import { useEffect } from 'react';
-import useIsPWA from 'hooks/useIsPWA';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import LazyLoadImage from './LazyLoadImage';
@@ -162,8 +162,6 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     textDecoration: 'none !important',
     paddingBottom: ({ hasImage, isExtended }) => {
-      console.log('=======================================================================');
-      console.log(theme.palette.text.primary);
       if (isExtended) return theme.spacing(1);
       if (hasImage) return theme.spacing(2);
       return 0;
@@ -240,16 +238,20 @@ const ExhibitItem = ({
   setExhibitItemSize,
   getExhibitItemSize = () => DEFAULT_POST_ITEM_HEIGHT,
 }) => {
-  const isPWA = useIsPWA();
   const isExtended = false;
-  const shouldReplaceImagesWithPlaceholder = useSelector(
+  const hideImage = useSelector(
     store => store.settings.readerSettings.replaceImagesWithPlaceholder
   );
-  const shouldOpenInNewTab = !isPWA;
-  const hideImage = shouldReplaceImagesWithPlaceholder;
 
-  const { title: unparsedTitle, text, createdAt, updatedAt, statistics, image: apiImage } = post || {};
-  const image = apiImage || 'https://cdn1.byjus.com/wp-content/uploads/2018/11/physics/wp-content/uploads/2016/08/4.png';
+  const {
+    title: unparsedTitle,
+    createdAt,
+    statistics,
+    image: apiImage,
+  } = post || {};
+  const image =
+    apiImage ||
+    'https://cdn1.byjus.com/wp-content/uploads/2018/11/physics/wp-content/uploads/2016/08/4.png';
 
   const classes = useStyles({
     hasImage: !!image && !hideImage,
@@ -257,7 +259,7 @@ const ExhibitItem = ({
   });
 
   const [isRendered, setIsRendered] = React.useState(false);
-  const ts = dayjs(post.createdAt).calendar().toLowerCase();
+  const ts = dayjs(createdAt).calendar().toLowerCase();
   const title = parse(unparsedTitle.replace(NBSP_CHAR, WHITESPACE_CHAR));
 
   const unformattedScore = 10;
@@ -272,7 +274,7 @@ const ExhibitItem = ({
   const postLink = getPostLink(post);
   const linkProps = {
     rel: 'noreferrer',
-    target: shouldOpenInNewTab ? '_target' : '_self',
+    target: '_self',
   };
   const shouldShowPostImage = image && !hideImage && !isExtended;
   const bottomRow = [

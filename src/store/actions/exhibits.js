@@ -29,7 +29,7 @@ const getExhibits =
       error => {
         dispatch({
           type: GET_EXHIBITS_FAIL,
-          payload: { error: error?.response?.data?.error },
+          payload: { error: error?.response?.data?.errors },
         });
         return Promise.reject();
       }

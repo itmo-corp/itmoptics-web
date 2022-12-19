@@ -5,7 +5,7 @@ export default class ExhibitsService {
     try {
       return await instance.get('exhibits');
     } catch (error) {
-      return Promise.reject();
+      return Promise.reject(error);
     }
   }
 
@@ -13,7 +13,7 @@ export default class ExhibitsService {
     try {
       return await instance.get(`exhibits/${id}`);
     } catch (error) {
-      return Promise.reject();
+      return Promise.reject(error);
     }
   }
 }

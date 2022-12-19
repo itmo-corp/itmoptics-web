@@ -49,7 +49,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const ErrorComponent = ({ code = 500, message, to = '/' }) => {
+const ErrorComponent = ({ code = 'Error', message, to = '/' }) => {
   const classes = useStyles();
 
   return (
